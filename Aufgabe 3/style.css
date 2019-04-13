@@ -8,17 +8,18 @@ p {
 }
 section {
     background-color: #610B4B;
-    width: 1000px
+    width: 90%
 }
 article {
     background-color: #FA58AC;
-    width: 1000px
+    width: 90%
 }
 img {
     height: 50%;
     width: 50%;
     border: 1px solid #000000;
-    border-radius: 90%
+    border-radius: 90%;
+    text-align: center
 }
 h2 {
     color: #FFFFFF;
