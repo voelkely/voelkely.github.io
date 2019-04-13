@@ -8,15 +8,15 @@ p {
 }
 section {
     background-color: #610B4B;
-    width: 600px
+    width: 800px
 }
 article {
     background-color: #FA58AC;
-    width: 600px
+    width: 800px
 }
 img {
-    height: 30%;
-    width: 20%;
+    height: 50%;
+    width: 50%;
     border: 1px solid #000000;
-    border-radius: 25px
+    border-radius: 90%
 }
