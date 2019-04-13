@@ -3,7 +3,7 @@ body {
 }
 p {
     font-size: 1,5em;
-    color:#FFFFFF;
+    color:#000000;
     font-family: "Arial"
 }
 section {
@@ -19,4 +19,12 @@ img {
     width: 50%;
     border: 1px solid #000000;
     border-radius: 90%
+}
+h2 {
+    color: #FFFFFF;
+    font-family: "Verdanan"
+}
+h1 {
+    color: #610B4B;
+    font-family: "Arial"
 }
