@@ -25,16 +25,16 @@ nav li{
 }
 .Aside{
     width: 20%;
-    margin-right: 20%;
+    margin-right: 10%;
     position: relative;
-    font-family:"Arial";
-    font-weight: "bold";
+    font-family:"Impact";
 }
 .Aside2{
     margin-top: 2em;
     width: 18%;
     margin-right: 20%;
     position: absolute;
+    font-family: "Arial";
 }
 .Aside2:hover{
     position: absolute;
@@ -72,6 +72,11 @@ article {
 h4 {
     color: #333;
     font-family: "Arial"
+}
+h2{
+    color: #333;
+    font-family: "Impact";
+    float: left;
 }
 h1 {
     color:  #333;
