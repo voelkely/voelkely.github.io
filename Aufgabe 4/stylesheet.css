@@ -30,7 +30,7 @@ nav li{
     font-family:"Impact";
 }
 .Aside2{
-    margin-top: 2em;
+    margin-top: 1em;
     width: 18%;
     margin-right: 20%;
     position: absolute;
@@ -48,7 +48,9 @@ main {
     width: 60%;
     margin-left: 24%;
     margin-right: 10%;
-    background-color: #333;
+    background-color: #FFFFFF;
+    float:left;
+    border: 5px solid black;
 }
 section{
     width: 20%;
@@ -76,7 +78,7 @@ h4 {
 h2{
     color: #333;
     font-family: "Impact";
-    float: left;
+    font-size: 20pt;
 }
 h1 {
     color:  #333;
