@@ -40,6 +40,7 @@ nav li{
     float:left;
     border: 5px solid black;
     margin: 1%;
+    text-align: left;
 }
 .Aside2:hover{
     position: absolute;
