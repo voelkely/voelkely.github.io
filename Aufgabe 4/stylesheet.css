@@ -25,9 +25,11 @@ nav li{
 }
 .Aside{
     width: 20%;
-    margin-right: 10%;
+    margin-right: 20%;
     position: relative;
     font-family:"Arial";
+    margin: 1%;
+    float: clear;
 }
 .Aside2{
     margin-top: 1em;
@@ -35,6 +37,9 @@ nav li{
     margin-right: 20%;
     position: absolute;
     font-family: "Arial";
+    float:left;
+    border: 5px solid black;
+    margin: 1%;
 }
 .Aside2:hover{
     position: absolute;
