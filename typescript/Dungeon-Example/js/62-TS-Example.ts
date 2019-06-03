@@ -23,8 +23,8 @@ interface Monster {
     monsterHealthPoints : number; // Lebenspunkte
     monsterExperience : number; // Erfahrungspunkte bei besiegen des Monsters
     monsterModifier : string []; // Monster-Verstärker. Diese sind in diesem Fall nur Text! (Da hier einfacher Zufall für die Auswahl genutzt wird, kann der gleiche Eintrag auch doppelt vorkommen)
-    monsterItem: string;     //Waffe
-    monsterIcon: string;  //Bild 
+    monsterSnack: string;     //Snack
+    monsterAge: number;  //Alter der Monster
 }
 
 
@@ -39,14 +39,18 @@ let playerXPperLevel : number = 500;                                            
 
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix : string[] = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) ", "freundliche(s) ", "schmutzige(s) ", "alte(s) ", "singende(s)"]; // length = 10, da 10 Einträge. Von 0-9.
-let monsterName : string[] = ["Ratte", "Nagetier", "Ungeziefer", "Krokodil", "Ente", "Kamel", "Käfer"]; // length = 7, da 7 Einträge. Von 0-7.
+let monsterName : string[] = ["Igel", "Hase", "Känguru", "Krokodil", "Ente", "Kamel", "Käfer"]; // length = 3, da 3 Einträge. Von 0-2.
 let suffix : string[] = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung", " von neben an", "aus Amerika ", "aus der Hölle ", "mit Krücken ", "aus dem Niemandsland "]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 
 let monsterModifers : string[] = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
 
-let monsterIcons: string[] = ["typescript/Dungeon-Example/imgs/monster1.png", "imgs/monster2.png", "imgs/monster3.png","imgs/monster4.png", "imgs/monster5.png"];
+let monsterIcons: string[] = ["imgs/i.png", "imgs/h.png", "imgs/b.png"];
 
-let monsterItem: string[] = ["Feuer", "Schwert", "Steinschleuder", "Hammer"];
+let monsterSnack: string[] = ["Pizza", "Eis", "Gummibärchen", "Toast Hawaii"];
+
+let monsterAge: number[] = [100, 543, 1001, 23647,12,6];
+
+let PushArray: number[] = [];
 
 // -- Initialisierung für viele/variable Anzahl an Monster --
 let monsterArray : Monster[] = []; // Das Haupt-Array wurde erstellt und initialisiert!
@@ -75,16 +79,14 @@ function generateMonster()
     let newMonsterHP : number = generateMonsterHitPoints();             // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     let newMonsterXP : number = generateMonsterXP();                    // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     let newMonsterModifier : string[] = generateMonsterModifer();       // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
-    let newMonsterItem : string[] = generateMonsterItem();
-    let newMonsterIcon : string[] = generateMonsterIcon();
+   
 
     let newMonster : Monster = {                                        // Monster wird erstellt.
         monsterName : newMonsterName, 
         monsterHealthPoints : newMonsterHP,
         monsterExperience : newMonsterXP,
         monsterModifier : newMonsterModifier,
-        monsterIcon : newMonsterIcon,
-        monsterItem : newMonsterItem,
+    
         //monsterMoney : 0, Fehler 2 gefunden
     };
 

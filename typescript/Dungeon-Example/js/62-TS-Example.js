@@ -11,11 +11,13 @@ var playerXP = 0; ///Fehler 1 gefunden                 // Stellt die gesammelte 
 var playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 var prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) ", "freundliche(s) ", "schmutzige(s) ", "alte(s) ", "singende(s)"]; // length = 10, da 10 Einträge. Von 0-9.
-var monsterName = ["Ratte", "Nagetier", "Ungeziefer", "Krokodil", "Ente", "Kamel", "Käfer"]; // length = 7, da 7 Einträge. Von 0-7.
+var monsterName = ["Igel", "Hase", "Känguru", "Krokodil", "Ente", "Kamel", "Käfer"]; // length = 3, da 3 Einträge. Von 0-2.
 var suffix = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung", " von neben an", "aus Amerika ", "aus der Hölle ", "mit Krücken ", "aus dem Niemandsland "]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 var monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
-var monsterIcons = ["typescript/Dungeon-Example/imgs/monster1.png", "imgs/monster2.png", "imgs/monster3.png", "imgs/monster4.png", "imgs/monster5.png"];
-var monsterItem = ["Feuer", "Schwert", "Steinschleuder", "Hammer"];
+var monsterIcons = ["imgs/i.png", "imgs/h.png", "imgs/b.png"];
+var monsterSnack = ["Pizza", "Eis", "Gummibärchen", "Toast Hawaii"];
+var monsterAge = [100, 543, 1001, 23647, 12, 6];
+var PushArray = [];
 // -- Initialisierung für viele/variable Anzahl an Monster --
 var monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
@@ -35,15 +37,11 @@ function generateMonster() {
     var newMonsterHP = generateMonsterHitPoints(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     var newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     var newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
-    var newMonsterItem = generateMonsterItem();
-    var newMonsterIcon = generateMonsterIcon();
     var newMonster = {
         monsterName: newMonsterName,
         monsterHealthPoints: newMonsterHP,
         monsterExperience: newMonsterXP,
-        monsterModifier: newMonsterModifier,
-        monsterIcon: newMonsterIcon,
-        monsterItem: newMonsterItem
+        monsterModifier: newMonsterModifier
     };
     monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
     //console.log(monsterArray[-1].monsterExperience);   Fehler 3 gefunden                 // Man kann nur auf Array-Teile zugreifen, welche definiert sind. -1 ist nicht definitiert (und wird es auch nie sein).
