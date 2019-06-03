@@ -110,7 +110,7 @@ function monsterGenerateHTML()
     holdingDiv.appendChild(monsterName);                                // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
 
     let monsterMod : HTMLElement = document.createElement("p");        // Generiere einen <p>
-    monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + ", " +  monsterArray[monsterArray.length -1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
+    monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + "& " +  monsterArray[monsterArray.length -1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
     holdingDiv.appendChild(monsterMod);                                // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
 
     let monsterImg : HTMLElement = document.createElement("img");       // Erstelle ein <img>-Element
@@ -119,7 +119,7 @@ function monsterGenerateHTML()
     holdingDiv.appendChild(monsterImg);                                 // Füge das Bild zu dem holding-div hinzu (<div>, welche ein paar Zeilen zuvor erstellt worden ist)
 
     let monsterBtn : HTMLElement = document.createElement("BUTTON");    // Erstelle ein <button>-Element
-    monsterBtn.innerHTML = "Monster bekämpfen!";                        // Verändere den Inhalt des HTML-Elementes. Der genaue Text ist dabei euch überlassen.
+    monsterBtn.innerHTML = "Monster bekämpfen?";                        // Verändere den Inhalt des HTML-Elementes. Der genaue Text ist dabei euch überlassen.
     holdingDiv.appendChild(monsterBtn);                                 // Füge den Button zu dem holding-div hinzu.
 
     let monsterCount : number = monsterArray.length;                    // Die aktuelle Anzahl vorhandener Monster, zudem auch die neue Zahl für das Monster-Array.

@@ -57,14 +57,14 @@ function monsterGenerateHTML() {
     monsterName.innerHTML = monsterArray[monsterArray.length - 1].monsterName; // Inhalt des <p>: Monster-Name des letzten Monsters im Array.
     holdingDiv.appendChild(monsterName); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
     var monsterMod = document.createElement("p"); // Generiere einen <p>
-    monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + ", " + monsterArray[monsterArray.length - 1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
+    monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + "& " + monsterArray[monsterArray.length - 1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
     holdingDiv.appendChild(monsterMod); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
     var monsterImg = document.createElement("img"); // Erstelle ein <img>-Element
     monsterImg.setAttribute("src", "imgs/pinguin.png"); // Der Pfad für das Bild muss über setAttribute festgelegt werden. Der Bildpfad kann natürlich auch anders aussehen.
     monsterImg.setAttribute("alt", "Schreckliches Monster"); // Das alt für das Bild wird hier festgelegt.
     holdingDiv.appendChild(monsterImg); // Füge das Bild zu dem holding-div hinzu (<div>, welche ein paar Zeilen zuvor erstellt worden ist)
     var monsterBtn = document.createElement("BUTTON"); // Erstelle ein <button>-Element
-    monsterBtn.innerHTML = "Monster bekämpfen!"; // Verändere den Inhalt des HTML-Elementes. Der genaue Text ist dabei euch überlassen.
+    monsterBtn.innerHTML = "Monster bekämpfen?"; // Verändere den Inhalt des HTML-Elementes. Der genaue Text ist dabei euch überlassen.
     holdingDiv.appendChild(monsterBtn); // Füge den Button zu dem holding-div hinzu.
     var monsterCount = monsterArray.length; // Die aktuelle Anzahl vorhandener Monster, zudem auch die neue Zahl für das Monster-Array.
     console.log("Aktuelle Anzahl an Monstern: " + monsterCount);
