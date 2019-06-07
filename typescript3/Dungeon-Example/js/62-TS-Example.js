@@ -13,11 +13,12 @@ var playerXPperLevel = 500; // Da es nur einen Spieler gibt, ergibt sich noch ni
 var playerObjects = "Feuer";
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 var prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) ", "freundliche(s) ", "schmutzige(s) ", "alte(s) ", "singende(s)"]; // length = 10, da 10 Einträge. Von 0-9.
-var monsterName = [" Igel", " Hase", " Känguru", " Krokodil", " Ente", " Kamel", " Käfer"]; // length = 3, da 3 Einträge. Von 0-2.
-var suffix = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung", " von neben an", " aus Amerika ", " aus der Hölle ", " mit Krücken ", " aus dem Niemandsland "]; // length = 6, da hier 6 Einträge sind. Von 0-5.
+var monsterName = ["Igel", "Hase", "Känguru", "Krokodil", "Ente", "Kamel", "Käfer"]; // length = 3, da 3 Einträge. Von 0-2.
+var suffix = [" des Verderbens", " aus der Hölle", " der Lethalität", " mit Rheuma", " der Redundanz", " der Zerberstung", " von neben an", "aus Amerika ", "aus der Hölle ", "mit Krücken ", "aus dem Niemandsland "]; // length = 6, da hier 6 Einträge sind. Von 0-5.
 var monsterModifers = ["Ist nervig", "Linkshänder", "Bier-Connoisseur", "Verfehlt häufig", "Prokrastiniert", "Müde", "Verwirrt", "Wasserscheu", "Bipolar", "Hat Schnupfen", "Verläuft sich oft"]; // Eine Reihe von zufälligen "Verstärkern" für das Monster.
-var monsterBilder = ["imgs/i.png", "imgs/h.png", "imgs/b.png", "imgs/m.jpg", "imgs/t.jpg", "imgs/k.jpg", "imgs/elefant.png", "imgs/loewe.png", "imgs/pinguin.png"];
+var monsterBilder = ["imgs/i.png", "imgs/h.png", "imgs/b.png"];
 var monsterAge = [100, 543, 1001, 23647, 12, 6];
+var PushArray = [];
 // -- Initialisierung für viele/variable Anzahl an Monster --
 var monsterArray = []; // Das Haupt-Array wurde erstellt und initialisiert!
 console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es sollte leer sein.
@@ -37,15 +38,12 @@ function generateMonster() {
     var newMonsterHP = generateMonsterHitPoints(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     var newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
     var newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
-    var newMonsterAge = generateMonsterAge();
-    var newMonsterBilder = generateMonsterBilder();
+    var newMonsterPic = bildpfad;
     var newMonster = {
         monsterName: newMonsterName,
         monsterHealthPoints: newMonsterHP,
         monsterExperience: newMonsterXP,
-        monsterModifier: newMonsterModifier,
-        monsterAge: newMonsterAge,
-        monsterBilder: newMonsterBilder
+        monsterModifier: newMonsterModifier
     };
     monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
     //console.log(monsterArray[-1].monsterExperience);   Fehler 3 gefunden                 // Man kann nur auf Array-Teile zugreifen, welche definiert sind. -1 ist nicht definitiert (und wird es auch nie sein).
@@ -64,7 +62,7 @@ function monsterGenerateHTML() {
     monsterMod.innerHTML = monsterArray[monsterArray.length - 1].monsterModifier[0] + "& " + monsterArray[monsterArray.length - 1].monsterModifier[1]; // Inhalt des <p>: Monster-Modifizierer null und eins
     holdingDiv.appendChild(monsterMod); // Füge das <p> zum HTML-Dokument hinzu, indem es dem holding-Div angefügt wird.
     var monsterImg = document.createElement("img"); // Erstelle ein <img>-Element
-    monsterImg.setAttribute("src", monsterArray[monsterArray.length - 1].monsterBilder); // Der Pfad für das Bild muss über setAttribute festgelegt werden. Der Bildpfad kann natürlich auch anders aussehen.
+    monsterImg.setAttribute("src", "imgs/pinguin.png"); // Der Pfad für das Bild muss über setAttribute festgelegt werden. Der Bildpfad kann natürlich auch anders aussehen.
     monsterImg.setAttribute("alt", "Schreckliches Monster"); // Das alt für das Bild wird hier festgelegt.
     holdingDiv.appendChild(monsterImg); // Füge das Bild zu dem holding-div hinzu (<div>, welche ein paar Zeilen zuvor erstellt worden ist)
     var monsterBtn = document.createElement("BUTTON"); // Erstelle ein <button>-Element
@@ -98,7 +96,7 @@ function generateMonsterName() {
     generatedMonsterName = prefix[rngNumber]; // Füge den Monsternamen zusammen: nimm aus dem entsprechenden Array mit der zufallsgenerierten Zahl den entsprechenden Eintrag.
     // Monster-Mittelname
     rngNumber = getRNGNumber(monsterName.length); // Der Rückgabewert der Funktion wird hier verwendet um den entsprechenden Teil des Namens (hier: Mitte) zu generieren.
-    generatedMonsterName += monsterName[rngNumber]; //Fehler 5 gefunden                            // Füge den Monsternamen zusammen: nimm aus dem entsprechenden Array mit der zufallsgenerierten Zahl den entsprechenden Eintrag.
+    //generatedMonsterName += monsterName[0]; Fehler 5 gefunden                            // Füge den Monsternamen zusammen: nimm aus dem entsprechenden Array mit der zufallsgenerierten Zahl den entsprechenden Eintrag.
     // Monster-Titel
     rngNumber = getRNGNumber(suffix.length); // Der Rückgabewert der Funktion wird hier verwendet um den entsprechenden Teil des Namens (hier: Ende) zu generieren.
     generatedMonsterName += suffix[rngNumber]; // Füge den Monsternamen zusammen: nimm aus dem entsprechenden Array mit der zufallsgenerierten Zahl den entsprechenden Eintrag.
@@ -117,16 +115,6 @@ function generateMonsterXP() {
     // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 350) + 100 zurück.
     var tempMonsterXP = 100 + getRNGNumber(500);
     return tempMonsterXP;
-}
-// Definiert Alter des Monsters.
-function generateMonsterAge() {
-    var tempMonsterAge = monsterAge[getRNGNumber(monsterAge.length)];
-    return tempMonsterAge;
-}
-// Definiert die verschiedenen Bilder der Monster
-function generateMonsterBilder() {
-    var tempMonsterBilder = monsterBilder[getRNGNumber(monsterBilder.length)];
-    return tempMonsterBilder;
 }
 // Wird für die Erstellung der Monster-Modifizierer aufgerufen.
 // Liefert ein Array mit zwei Einträgen zurück.
