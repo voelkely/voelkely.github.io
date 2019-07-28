@@ -1,0 +1,73 @@
+
+span.card {
+  margin: 5px
+}
+
+span.card img {
+  width: 80px;
+}
+
+.row .column {
+  float: right;
+}
+
+.row .wide-column {
+  width: 65%;
+}
+.row .narrow-column {
+  width: 35%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h3 {
+  text-align: center;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #fff;
+}
+header{
+  width: 100%;
+
+}
+header h1{
+    color: #333;
+    font-family: "Impact";
+    font-size: 40pt;
+    text-shadow: 3px 1px #ffffff;
+    background-color: #9b9b99;
+    padding: 40px;
+    text-align: center;
+}
+
+#card-table {
+  padding: 40px 20px;
+  border: 10px solid #4A2E30;
+  background-color: #03C91E;
+}
+
+#current-card {
+  padding-top: 50px;
+  height: 125px;
+}
+
+.card-collection {
+  text-align: center;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.blinking {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
